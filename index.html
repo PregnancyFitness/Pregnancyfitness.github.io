@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" 
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel=”stylesheet” href=”https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css”>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="search_bar.css">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
+
+    <title>Pregnancy Fitness</title>
+
+    <style>
+      label{
+          display: inline-block; width: 80px;
+      }
+      input,select{
+          width: 120px;
+      }
+  </style>
+
+  </head>
+
+  <body>
+    <!-- Header -->
+    <section id="header">
+      <div class="header container">
+        <div class="nav-bar">
+          <div class="brand">
+            <a href="#hero">
+              <h1><span>P</span>regnancy <span>F</span>itness</h1>
+            </a>
+          </div>
+          <div class="nav-list">
+            <div class="hamburger">
+              <div class="bar"></div>
+            </div>
+            <ul>
+              <li><a href="#hero" data-after="Home">Home</a></li>
+              <li><a href="#services" data-after="Service">Users</a></li>
+              <li><a href="#about" data-after="About">About</a></li>
+              <li><a href="#contact" data-after="Contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>  
+    </section>
+    <!-- End Header -->
+
+
+    <!-- Hero Section  -->
+    <section id="hero">
+      <div class="hero container">
+        <div>
+          <h1>Welcome to, <span></span></h1>
+          <h1>Pregnancy Fitness <span></span></h1>
+          <a href="#services" type="button" class="cta">Users </a>
+        </div>
+      </div>
+    </section>
+    <!-- End Hero Section  -->
+
+    
+    <!-- Users Section -->
+    <section id="services">
+      <div class="services container">
+
+        <div class="service-top">
+          <h1 class="section-title">Us<span>e</span>rs</h1>
+          <p>Pregnant as User of a mobile application will perform a exercise base on Trimester they have been set,
+             were the weekly and Monthy progress of the users shows here to view by the Doctor.</p>
+        </div>
+      
+        <div class="service-item" style="width: 1200px;">
+          <!-- SEARCH BAR -->
+          <div class="search_box" style="margin-bottom: -60px;">
+            <div class="search_btn"><i class="fas fa-search"></i></div>
+            <input id="SearchBar" type="search" class="input_search" placeholder="Search User. .">
+            
+            <div class="input-group-append">
+              <div>
+                <select style="border-radius: 50px; margin-left: 10px;width: 100px; " class="custom-select" id="CategorySelected">
+                  <option selected value="1">By Email</option>
+                  <option value="2">By Firstname</option>
+                  <option value="3">By Lastname</option>
+                </select><br>
+                <button id="SearchBtn" class="btn btn-primary my-2" style="margin-left: 10px; border-radius: 30px; width: 100px; height: 30px;" type="button">Search</button>
+              </div>
+             
+            </div>
+          </div>
+          <div style=" margin-left: 1000px;">
+            <input class="form-control" style="margin-bottom: 3px; border-radius: 10px; margin-left: 30px; text-align: center; height: fit-content; width: 100px; font-size:small;" id="username" type="text" placeholder="user id">
+            <button style="margin-top: 3px; margin-bottom: 10px; border-radius: 50px;  margin-left: 30px; height: fit-content;" class="btn btn-success" type="button" id="viewProgress" data-toggle="modal" data-target="#exampleModalCenter">View Progress</button>
+          </div>
+          <table id="users" class="table table-dark">
+              <thead>
+
+                <th>#</th>
+                <th>email</th>
+                <th>firstname</th>
+                <th>lastname</th>
+                </div>
+              </thead>
+              <tbody id="tbody1"></tbody>
+          </table>
+      
+        </div>
+      </div>
+   
+      <!-- Modal Starts -->
+    
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title" id="exampleModalCenterTitle"><b>User Exercise Progress</b></h1>
+              <button id="closeModal" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span  aria-hidden="true">X</span>
+              </button>
+            </div>
+            <div class="modal-body" style="border: solid 1px;">
+              <h2 style="text-align: center;"><u>Cardio for All Trimester</u></h2>
+              <table class="table table-dark">
+                <thead> <h3>Weekly</h3>
+                  <th>Week</th>
+                  <th>Percentage</th>
+            
+                </thead>
+                <tbody id="tbody2"></tbody>
+              </table>
+              
+              <table class="table table-dark">
+                <thead> <h3>Monthly</h3>
+                  <th>Month</th>
+                  <th>Percentage</th>
+                </thead>
+                <tbody id="tbody3"></tbody>
+              </table>
+            </div>
+
+            <div class="modal-body" style="border: solid 1px; margin-top: 3px;">
+              <h2 style="text-align: center;"><u>1st Trimester</u></h2>
+              <table class="table table-dark">
+                <thead> <h3>Weekly</h3>
+                  <th>Week</th>
+                  <th>Percentage</th>
+            
+                </thead>
+                <tbody id="tbody4"></tbody>
+              </table>
+              
+              <table class="table table-dark">
+                <thead> <h3>Monthly</h3>
+                  <th>Month</th>
+                  <th>Percentage</th>
+                </thead>
+                <tbody id="tbody5"></tbody>
+              </table>
+            </div>
+
+            <div class="modal-body" style="border: solid 1px; margin-top: 3px;">
+              <h2 style="text-align: center;"><u>2nd Trimester</u></h2>
+              <table class="table table-dark">
+                <thead> <h3>Weekly</h3>
+                  <th>Week</th>
+                  <th>Percentage</th>
+            
+                </thead>
+                <tbody id="tbody6"></tbody>
+              </table>
+              
+              <table class="table table-dark">
+                <thead> <h3>Monthly</h3>
+                  <th>Month</th>
+                  <th>Percentage</th>
+                </thead>
+                <tbody id="tbody7"></tbody>
+              </table>
+            </div>
+
+            <div class="modal-body" style="border: solid 1px; margin-top: 3px;">
+              <h2 style="text-align: center;"><u>3rd Trimester</u></h2>
+              <table class="table table-dark">
+                <thead> <h3>Weekly</h3>
+                  <th>Week</th>
+                  <th>Percentage</th>
+            
+                </thead>
+                <tbody id="tbody8"></tbody>
+              </table>
+              
+              <table class="table table-dark">
+                <thead> <h3>Monthly</h3>
+                  <th>Month</th>
+                  <th>Percentage</th>
+                </thead>
+                <tbody id="tbody9"></tbody>
+              </table>
+            </div>
+
+            <div class="modal-footer">
+              <button id="closeModal0" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Modal Ends -->
+
+    </section>
+    <!-- End Users Section -->
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" 
+integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" 
+integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ 
+
+    <!-- About Section -->
+    <section id="about">
+      <div class="about container">
+        <div class="col-left">
+          <div class="about-img">
+            <img src="./img/pregnancy.png" alt="img">
+          </div>
+        </div>
+        <div class="col-right">
+          <h1 class="section-title">About <span>Us</span></h1>
+          <h2>Pregnancy Fitness</h2>
+          <p>The safest and most productive activities are swimming, brisk walking,
+             indoor stationary cycling, step or elliptical machines, and low-impact aerobics 
+             (taught by a certified aerobics instructor). These activities carry little risk of injury,
+              benefit your entire body, and can be continued until birth.</p>
+          <a href="#contact" class="cta">Reach Us</a>
+        </div>
+      </div>
+    </section>
+    <!-- End About Section -->
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="contact container">
+        <div>
+          <h1 class="section-title">Contact <span>info</span></h1>
+        </div>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="icon"><img src="./img/phone.png" /></div>
+            <div class="contact-info">
+              <h1>Phone</h1>
+              <h2>+63 934 9953 323</h2>
+              <h2>+63 934 5536 234</h2>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="icon"><img src="./img/email.png" /></div>
+            <div class="contact-info">
+              <h1>Email</h1>
+              <h2>bettyleitayag@gmail.com</h2>
+              <h2>maricardavid@gmail.com</h2>
+              <h2>rosemariepamintuan@gmail.com</h2>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="icon"><img src="./img/address.png" /></div>
+            <div class="contact-info">
+              <h1>Address</h1>
+              <h2>Arayat Pampanga</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Contact Section -->
+
+    <!-- Footer -->
+    <section id="footer">
+      <div class="footer container" style="background-color:dimgray ; border-radius: 150px;">
+        <div class="brand">
+          <h1>Pregancy Fitness</h1>
+        </div>
+        <h2>Visit Us</h2>
+        <div class="social-icon">
+          <div class="social-item">
+            <a href="#"><img src="./img/facebook.png" /></a>
+          </div>
+          <div class="social-item">
+            <a href="#"><img src="./img/instagram.png" /></a>
+          </div>
+          <div class="social-item">
+            <a href="#"><img src="./img/twitter.png" /></a>
+          </div>
+        </div>
+        <p>Copyright © 2022 Pregnancy Fitness . All rights reserved</p>
+      </div>
+    </section>
+    <!-- End Footer -->
+    <script>
+
+        function gt() {
+        console.log("Pogi");
+      }
+
+    </script>
+
+  <script type="module">
+       
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+  // import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
+  import { getDatabase, ref, get, child} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyA4Sxlxzw68Puu3cGFLaHJkChFkQgvLmYU",
+  authDomain: "pf-app-c0f36.firebaseapp.com",
+  databaseURL: "https://pf-app-c0f36-default-rtdb.firebaseio.com",
+  projectId: "pf-app-c0f36",
+  storageBucket: "pf-app-c0f36.appspot.com",
+  messagingSenderId: "396619443029",
+  appId: "1:396619443029:web:fcaff0b3f4a87d7ef31ddc",
+  measurementId: "G-C7930G7F86"
+};
+
+
+// const app = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
+// const analytics = getAnalytics(app);
+const db = getDatabase();
+// FUNCTION OF DISPLAYING USERS 
+
+
+var id = 0;
+var userList = [];
+var tbody1 = document.getElementById("tbody1");
+function AddItemToTable(email, firstname, lastname, user_id){
+
+  var trow = document.createElement("tr");
+  var td0 = document.createElement("td");
+  var td1 = document.createElement("td");
+  var td2 = document.createElement("td");
+  var td3 = document.createElement("td");
+
+  userList.push([email]);
+  td0.innerHTML = ++id;
+  td1.innerHTML = email;
+  td2.innerHTML = firstname;
+  td3.innerHTML = lastname;
+  td1.classList +="emailField";
+  td2.classList +="firstnameField";
+  td3.classList +="lastnameField";
+
+  trow.appendChild(td0);
+  trow.appendChild(td1);
+  trow.appendChild(td2);
+  trow.appendChild(td3);
+  tbody1.appendChild(trow);
+}
+
+
+
+function AddAllItemsToTable(Users){
+  id=0;
+  tbody1.innerHTML="";
+  Users.forEach(element =>{
+    AddItemToTable(element.email, element.firstname, element.lastname);
+  });
+}
+
+var users = [];
+
+function GetKey(users_key, users_uid ){
+  const dbRef = ref(db);
+
+ 
+  get(child(dbRef, "Users/"+users_uid+"/User Private Info/" + users_key)).then((snapshot) =>{
+
+    users.push(snapshot.val());
+    AddAllItemsToTable(users);
+  });
+
+}
+
+
+function GetUid(pass_uid){
+  const dbRef = ref(db);
+  get(child(dbRef, "Users/"+pass_uid+"/User Private Info")).then((snapshot) =>{
+
+    var k;
+    snapshot.forEach(child => {    
+    k = child.key, child.val();
+
+    });
+    GetKey(k, pass_uid);
+  });
+
+}
+
+
+function GetAllDataAtOnce(){
+  const dbRef = ref(db);
+  
+  get(child(dbRef, "Users")).then((snapshot) =>{
+
+    var uid ;
+    snapshot.forEach(child => {    
+    uid = child.key, child.val();
+    GetUid(uid);
+    });
+ 
+  });
+
+    
+}
+
+GetAllDataAtOnce();
+
+
+var searchBar = document.getElementById("SearchBar");
+var searchBtn = document.getElementById("SearchBtn");
+var category = document.getElementById("CategorySelected");
+var tbody = document.getElementById("tbody1");
+
+
+function SearchTable(Category){
+  var filter = searchBar.value.toUpperCase();
+  var tr = tbody.getElementsByTagName("tr");
+  var found;
+  for (let i = 0; i < tr.length; i++){
+    var td = tr[i].getElementsByClassName(Category);
+    
+    for (let j = 0; j < td.length; j++){
+      if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1){
+        found=true;
+      }
+    }
+    if(found){
+      tr[i].style.display="";
+      found=false; 
+    }
+    else{
+      tr[i].style.display="none";
+    }
+  }
+}
+
+
+searchBtn.onclick = function(){
+  if(searchBar.value==""){
+    SearchTable("emailField");
+  }
+ 
+  else if(category.value==1)
+  SearchTable("emailField");   
+  
+  else if(category.value==2)
+  SearchTable("firstnameField");   
+
+  else if(category.value==3)
+  SearchTable("lastnameField");   
+}
+// <
+
+
+
+
+// FUNCTION OF DISPLAYING  EXERCISE PROGRESS 
+
+// CARDIO FOR THIRD TRIMESTER
+
+var no_of_week3 = 0;
+
+var tbody8 = document.getElementById("tbody8");
+
+function AddWeekPercentageToTable3(weekly){
+  
+  var trow = document.createElement("tr");
+  var td0 = document.createElement("td");
+  var td1 = document.createElement("td");
+
+  td0.innerHTML = ++no_of_week3;
+  td1.innerHTML = weekly + " %";
+
+  trow.appendChild(td0);
+  trow.appendChild(td1);
+  tbody8.appendChild(trow);
+}
+
+var no_of_month3 = 0;
+var tbody9 = document.getElementById("tbody9");
+
+
+function AddMonthPercentageToTable3(monthly){
+  
+  var trow = document.createElement("tr");
+  var td0 = document.createElement("td");
+  var td1 = document.createElement("td");
+
+  td0.innerHTML = ++no_of_month3;
+  td1.innerHTML = monthly + " %";
+
+  trow.appendChild(td0);
+  trow.appendChild(td1);
+  tbody9.appendChild(trow);
+}
+
+
+function AddAllWeekPercentageToTable3(PercentageForWeek){
+  no_of_week3 = 0;
+  tbody8.innerHTML="";
+
+  PercentageForWeek.forEach(element =>{
+    AddWeekPercentageToTable3(element.percentage);
+
+  });
+
+
+}
+
+function AddAllMonthPercentageToTable3(PercentageForMonth){
+
+  no_of_month3 = 0;
+  tbody9.innerHTML="";
+  PercentageForMonth.forEach(element =>{
+  
+    AddMonthPercentageToTable3(element.percentage);
+
+  });
+
+
+}
+
+
+var percentage_for_week3 = [];
+function GetKeyForWeekPercentage3(get_uid, get_count_for_week, get_k_for_week){
+  const dbRefWeek = ref(db);
+
+  get(child(dbRefWeek, "Users/"+ get_uid + "/Third Trimester/Weeks/" + get_count_for_week + "/" + get_k_for_week)).then((snapshot) =>{
+
+    percentage_for_week3.push(snapshot.val());
+    AddAllWeekPercentageToTable3(percentage_for_week3);
+  
+  });
+
+}
+
+
+
+var percentage_for_month3 = [];
+function GetKeyForMonthPercentage3(get_uid, get_count_for_month, get_k_for_month){
+  const dbRefMonth = ref(db);
+  get(child(dbRefMonth, "Users/"+ get_uid + "/Third Trimester/Months/" + get_count_for_month + "/" + get_k_for_month)).then((snapshot) =>{
+
+    percentage_for_month3.push(snapshot.val());
+    AddAllMonthPercentageToTable3(percentage_for_month3);
+  
+  });
+
+
+}
+
+
+var pass_k_for_week3;
+function GetUidForWeekPercentage3(pass_uid, pass_count_for_week){
+  const dbRef = ref(db);
+
+  get(child(dbRef, "Users/"+pass_uid+"/Third Trimester/Weeks/" + pass_count_for_week)).then((snapshot) =>{
+
+    snapshot.forEach(child => {    
+      pass_k_for_week3 = child.key, child.val();
+      GetKeyForWeekPercentage3(pass_uid, pass_count_for_week, pass_k_for_week3);
+    });
+  
+  });
+
+}
+
+
+var  pass_k_for_month3;
+function GetUidForMonthPercentage3(pass_uid, pass_count_for_month){
+  const dbRef = ref(db);
+
+  get(child(dbRef, "Users/"+pass_uid+"/Third Trimester/Months/" + pass_count_for_month)).then((snapshot) =>{
+
+    snapshot.forEach(child => {    
+    pass_k_for_month3 = child.key, child.val();
+    GetKeyForMonthPercentage3(pass_uid, pass_count_for_month, pass_k_for_month3);
+    });
+  
+  });
+
+}
+
+
+var count_week3= [];
+function CountWeek3(pass_uid){
+
+  const dbRef = ref(db);
+  get(child(dbRef, "Users/"+pass_uid+"/Third Trimester/Weeks")).then((snapshot) =>{
+
+    snapshot.forEach(child => {    
+      count_week3 = child.key, child.val();
+
+      GetUidForWeekPercentage3(pass_uid, count_week3)
+    });
+
+  });
+
+}
+
+var count_month3 = [];
+function CountMonth3(pass_uid){
+
+  const dbRef = ref(db);
+  get(child(dbRef, "Users/"+pass_uid+"/Third Trimester/Months")).then((snapshot) =>{
+    snapshot.forEach(child => {    
+      count_month3 = child.key, child.val();
+      
+      GetUidForMonthPercentage3(pass_uid, count_month3);
+
+    });
+
+  });
+
+}
+// <
+
+// CARDIO FOR SECOND TRIMESTER
+
+var no_of_week2 = 0;
+
+var tbody6 = document.getElementById("tbody6");
+
+function AddWeekPercentageToTable2(weekly){
+  
+  var trow = document.createElement("tr");
+  var td0 = document.createElement("td");
+  var td1 = document.createElement("td");
+
+  td0.innerHTML = ++no_of_week2;
+  td1.innerHTML = weekly + " %";
+
+  trow.appendChild(td0);
+  trow.appendChild(td1);
+  tbody6.appendChild(trow);
+}
+
+var no_of_month2 = 0;
+var tbody7 = document.getElementById("tbody7");
+
+
+function AddMonthPercentageToTable2(monthly){
+  
+  var trow = document.createElement("tr");
+  var td0 = document.createElement("td");
+  var td1 = document.createElement("td");
+
+  td0.innerHTML = ++no_of_month2;
+  td1.innerHTML = monthly + " %";
+
+  trow.appendChild(td0);
+  trow.appendChild(td1);
+  tbody7.appendChild(trow);
+}
+
+
+function AddAllWeekPercentageToTable2(PercentageForWeek){
+  no_of_week2 = 0;
+  tbody6.innerHTML="";
+
+  PercentageForWeek.forEach(element =>{
+    AddWeekPercentageToTable2(element.percentage);
+
+  });
+
+
+}
+
+function AddAllMonthPercentageToTable2(PercentageForMonth){
+
+  no_of_month2 = 0;
+  tbody7.innerHTML="";
+  PercentageForMonth.forEach(element =>{
+  
+    AddMonthPercentageToTable2(element.percentage);
+
+  });
+
+
+}
+
+
+
+var percentage_for_week2 = [];
+function GetKeyForWeekPercentage2(get_uid, get_count_for_week, get_k_for_week){
+  const dbRefWeek = ref(db);
+
+  get(child(dbRefWeek, "Users/"+ get_uid + "/Second Trimester/Weeks/" + get_count_for_week + "/" + get_k_for_week)).then((snapshot) =>{
+
+    percentage_for_week2.push(snapshot.val());
+    AddAllWeekPercentageToTable2(percentage_for_week2);
+  
+  });
+
+}
+
+
+
+var percentage_for_month2 = [];
+function GetKeyForMonthPercentage2(get_uid, get_count_for_month, get_k_for_month){
+  const dbRefMonth = ref(db);
+  get(child(dbRefMonth, "Users/"+ get_uid + "/Second Trimester/Months/" + get_count_for_month + "/" + get_k_for_month)).then((snapshot) =>{
+
+    percentage_for_month2.push(snapshot.val());
+    AddAllMonthPercentageToTable2(percentage_for_month2);
+  
+  });
+
+
+}
+
+
+var pass_k_for_week2;
+function GetUidForWeekPercentage2(pass_uid, pass_count_for_week){
+  const dbRef = ref(db);
+
+  get(child(dbRef, "Users/"+pass_uid+"/Second Trimester/Weeks/" + pass_count_for_week)).then((snapshot) =>{
+
+    snapshot.forEach(child => {    
+      pass_k_for_week2 = child.key, child.val();
+      GetKeyForWeekPercentage2(pass_uid, pass_count_for_week, pass_k_for_week2);
+    });
+  
+  });
+
+}
+
+
+var  pass_k_for_month2;
+function GetUidForMonthPercentage2(pass_uid, pass_count_for_month){
+  const dbRef = ref(db);
+
+  get(child(dbRef, "Users/"+pass_uid+"/Second Trimester/Months/" + pass_count_for_month)).then((snapshot) =>{
+
+    snapshot.forEach(child => {    
+    pass_k_for_month2 = child.key, child.val();
+    GetKeyForMonthPercentage2(pass_uid, pass_count_for_month, pass_k_for_month2);
+    });
+  
+  });
+
+}
+
+
+var count_week2= [];
+function CountWeek2(pass_uid){
+
+  const dbRef = ref(db);
+  get(child(dbRef, "Users/"+pass_uid+"/Second Trimester/Weeks")).then((snapshot) =>{
+
+    snapshot.forEach(child => {    
+      count_week2 = child.key, child.val();
+
+      GetUidForWeekPercentage2(pass_uid, count_week2)
+    });
+
+  });
+
+}
+
+var count_month2 = [];
+function CountMonth2(pass_uid){
+
+  const dbRef = ref(db);
+  get(child(dbRef, "Users/"+pass_uid+"/Second Trimester/Months")).then((snapshot) =>{
+    snapshot.forEach(child => {    
+      count_month2 = child.key, child.val();
+      
+      GetUidForMonthPercentage2(pass_uid, count_month2);
+
+    });
+
+  });
+
+}
+// <
+
+// CARDIO FOR FIRST TRIMESTER
+
+var no_of_week1 = 0;
+
+var tbody4 = document.getElementById("tbody4");
+
+function AddWeekPercentageToTable1(weekly){
+  
+  var trow = document.createElement("tr");
+  var td0 = document.createElement("td");
+  var td1 = document.createElement("td");
+
+  td0.innerHTML = ++no_of_week1;
+  td1.innerHTML = weekly + " %";
+
+  trow.appendChild(td0);
+  trow.appendChild(td1);
+  tbody4.appendChild(trow);
+}
+
+var no_of_month1 = 0;
+var tbody5 = document.getElementById("tbody5");
+
+
+function AddMonthPercentageToTable1(monthly){
+  
+  var trow = document.createElement("tr");
+  var td0 = document.createElement("td");
+  var td1 = document.createElement("td");
+
+  td0.innerHTML = ++no_of_month1;
+  td1.innerHTML = monthly + " %";
+
+  trow.appendChild(td0);
+  trow.appendChild(td1);
+  tbody5.appendChild(trow);
+}
+
+
+function AddAllWeekPercentageToTable1(PercentageForWeek){
+  no_of_week1 = 0;
+  tbody4.innerHTML="";
+
+  PercentageForWeek.forEach(element =>{
+    AddWeekPercentageToTable1(element.percentage);
+
+  });
+
+
+}
+
+function AddAllMonthPercentageToTable1(PercentageForMonth){
+
+  no_of_month1 = 0;
+  tbody5.innerHTML="";
+  PercentageForMonth.forEach(element =>{
+  
+    AddMonthPercentageToTable1(element.percentage);
+
+  });
+
+
+}
+
+
+
+var percentage_for_week1 = [];
+function GetKeyForWeekPercentage1(get_uid, get_count_for_week, get_k_for_week){
+  const dbRefWeek = ref(db);
+
+  get(child(dbRefWeek, "Users/"+ get_uid + "/First Trimester/Weeks/" + get_count_for_week + "/" + get_k_for_week)).then((snapshot) =>{
+
+    percentage_for_week1.push(snapshot.val());
+    AddAllWeekPercentageToTable1(percentage_for_week1);
+  
+  });
+
+}
+
+
+
+var percentage_for_month1 = [];
+function GetKeyForMonthPercentage1(get_uid, get_count_for_month, get_k_for_month){
+  const dbRefMonth = ref(db);
+  get(child(dbRefMonth, "Users/"+ get_uid + "/First Trimester/Months/" + get_count_for_month + "/" + get_k_for_month)).then((snapshot) =>{
+
+    percentage_for_month1.push(snapshot.val());
+    AddAllMonthPercentageToTable1(percentage_for_month1);
+  
+  });
+
+
+}
+
+
+var pass_k_for_week1;
+function GetUidForWeekPercentage1(pass_uid, pass_count_for_week){
+  const dbRef = ref(db);
+
+  get(child(dbRef, "Users/"+pass_uid+"/First Trimester/Weeks/" + pass_count_for_week)).then((snapshot) =>{
+
+    snapshot.forEach(child => {    
+      pass_k_for_week1 = child.key, child.val();
+      GetKeyForWeekPercentage1(pass_uid, pass_count_for_week, pass_k_for_week1);
+    });
+  
+  });
+
+}
+
+
+var  pass_k_for_month1;
+function GetUidForMonthPercentage1(pass_uid, pass_count_for_month){
+  const dbRef = ref(db);
+
+  get(child(dbRef, "Users/"+pass_uid+"/First Trimester/Months/" + pass_count_for_month)).then((snapshot) =>{
+
+    snapshot.forEach(child => {    
+    pass_k_for_month1 = child.key, child.val();
+    GetKeyForMonthPercentage1(pass_uid, pass_count_for_month, pass_k_for_month1);
+    });
+  
+  });
+
+}
+
+
+var count_week1= [];
+function CountWeek1(pass_uid){
+
+  const dbRef = ref(db);
+  get(child(dbRef, "Users/"+pass_uid+"/First Trimester/Weeks")).then((snapshot) =>{
+
+    snapshot.forEach(child => {    
+      count_week1 = child.key, child.val();
+
+      GetUidForWeekPercentage1(pass_uid, count_week1)
+    });
+
+  });
+
+}
+
+var count_month1 = [];
+function CountMonth1(pass_uid){
+
+  const dbRef = ref(db);
+  get(child(dbRef, "Users/"+pass_uid+"/First Trimester/Months")).then((snapshot) =>{
+    snapshot.forEach(child => {    
+      count_month1 = child.key, child.val();
+      
+      GetUidForMonthPercentage1(pass_uid, count_month1);
+
+    });
+
+  });
+
+}
+// <
+
+// CARDIO FOR ALL TRIMESTER
+var no_of_week = 0;
+var tbody2 = document.getElementById("tbody2");
+
+function AddWeekPercentageToTable(weekly){
+  
+  var trow = document.createElement("tr");
+  var td0 = document.createElement("td");
+  var td1 = document.createElement("td");
+
+  td0.innerHTML = ++no_of_week;
+  td1.innerHTML = weekly + " %";
+
+  trow.appendChild(td0);
+  trow.appendChild(td1);
+  tbody2.appendChild(trow);
+}
+
+var no_of_month = 0;
+var tbody3 = document.getElementById("tbody3");
+
+
+function AddMonthPercentageToTable(monthly){
+  
+  var trow = document.createElement("tr");
+  var td0 = document.createElement("td");
+  var td1 = document.createElement("td");
+
+  td0.innerHTML = ++no_of_month;
+  td1.innerHTML = monthly + " %";
+
+  trow.appendChild(td0);
+  trow.appendChild(td1);
+  tbody3.appendChild(trow);
+}
+
+
+function AddAllWeekPercentageToTable(PercentageForWeek){
+  no_of_week = 0;
+  tbody2.innerHTML="";
+
+  PercentageForWeek.forEach(element =>{
+    AddWeekPercentageToTable(element.percentage);
+
+  });
+
+
+}
+
+function AddAllMonthPercentageToTable(PercentageForMonth){
+
+  no_of_month = 0;
+  tbody3.innerHTML="";
+  PercentageForMonth.forEach(element =>{
+  
+    AddMonthPercentageToTable(element.percentage);
+
+  });
+
+
+}
+
+
+
+var percentage_for_week = [];
+function GetKeyForWeekPercentage(get_uid, get_count_for_week, get_k_for_week){
+  const dbRefWeek = ref(db);
+
+  get(child(dbRefWeek, "Users/"+ get_uid + "/Cardio for All Trimesters/Weeks/" + get_count_for_week + "/" + get_k_for_week)).then((snapshot) =>{
+
+    percentage_for_week.push(snapshot.val());
+    AddAllWeekPercentageToTable(percentage_for_week);
+  
+  });
+
+}
+
+
+
+var percentage_for_month = [];
+function GetKeyForMonthPercentage(get_uid, get_count_for_month, get_k_for_month){
+  const dbRefMonth = ref(db);
+  get(child(dbRefMonth, "Users/"+ get_uid + "/Cardio for All Trimesters/Months/" + get_count_for_month + "/" + get_k_for_month)).then((snapshot) =>{
+
+    percentage_for_month.push(snapshot.val());
+    AddAllMonthPercentageToTable(percentage_for_month);
+  
+  });
+
+
+}
+
+
+var pass_k_for_week;
+function GetUidForWeekPercentage(pass_uid, pass_count_for_week){
+  const dbRef = ref(db);
+
+  get(child(dbRef, "Users/"+pass_uid+"/Cardio for All Trimesters/Weeks/" + pass_count_for_week)).then((snapshot) =>{
+
+    snapshot.forEach(child => {    
+      pass_k_for_week = child.key, child.val();
+      GetKeyForWeekPercentage(pass_uid, pass_count_for_week, pass_k_for_week);
+    });
+  
+  });
+
+}
+
+
+var  pass_k_for_month;
+function GetUidForMonthPercentage(pass_uid, pass_count_for_month){
+  const dbRef = ref(db);
+
+  get(child(dbRef, "Users/"+pass_uid+"/Cardio for All Trimesters/Months/" + pass_count_for_month)).then((snapshot) =>{
+
+    snapshot.forEach(child => {    
+    pass_k_for_month = child.key, child.val();
+    GetKeyForMonthPercentage(pass_uid, pass_count_for_month, pass_k_for_month);
+    });
+  
+  });
+
+}
+
+
+var count_week= [];
+function CountWeek(pass_uid){
+
+  const dbRef = ref(db);
+  get(child(dbRef, "Users/"+pass_uid+"/Cardio for All Trimesters/Weeks")).then((snapshot) =>{
+
+    snapshot.forEach(child => {    
+      count_week = child.key, child.val();
+
+      GetUidForWeekPercentage(pass_uid, count_week)
+    });
+
+  });
+
+}
+
+var count_month = [];
+function CountMonth(pass_uid){
+
+  const dbRef = ref(db);
+  get(child(dbRef, "Users/"+pass_uid+"/Cardio for All Trimesters/Months")).then((snapshot) =>{
+    snapshot.forEach(child => {    
+      count_month = child.key, child.val();
+      
+      GetUidForMonthPercentage(pass_uid, count_month);
+
+    });
+
+  });
+
+}
+// <
+
+
+function GetAllPercenatageAtOnce(index){
+  const dbRef = ref(db);
+  
+  
+  get(child(dbRef, "Users")).then((snapshot) =>{
+
+    var count = 0;
+    var uid ;
+    snapshot.forEach(child => {    
+    uid = child.key, child.val();
+   
+    if(count == index){
+      CountWeek(uid);CountMonth(uid);
+      CountWeek1(uid); CountMonth1(uid);
+      CountWeek2(uid); CountMonth2(uid);
+      CountWeek3(uid); CountMonth3(uid);
+    }
+    count++;
+  
+    });
+
+  });
+
+    
+}
+
+
+function ViewProgress() {
+  let n = document.getElementById('username').value;
+  GetAllPercenatageAtOnce(n - 1);
+  console.log(n - 1);
+
+  $('#exampleModalCenter').modal({
+      backdrop: 'static',
+      keyboard: false
+    });
+}
+function ExitModal() {
+  location.reload();
+}
+
+document.getElementById('viewProgress').onclick = ViewProgress;
+document.getElementById('closeModal').onclick = ExitModal;
+document.getElementById('closeModal0').onclick = ExitModal;
+
+
+
+
+// <
+
+</script>
+
+
+
+    <script src="./nav.js"></script>
+
+
+  </body>
+
+</html>
+
